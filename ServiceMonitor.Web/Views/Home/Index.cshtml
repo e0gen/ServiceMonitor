@@ -1,0 +1,33 @@
+﻿@model ServiceMonitor.Web.Models.HomeViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+<table class="u-full-width">
+    <thead>
+        <tr>
+            <th>Service</th>
+            <th>Status</th>
+            <th>LastHourFails</th>
+            <th>LastDayFails</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var wp in Model.StatusStatistics)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => wp.ServiceName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => wp.LastStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => wp.LastHourFails)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => wp.LastDayFails)
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
