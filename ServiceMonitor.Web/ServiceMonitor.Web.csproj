@@ -1,23 +1,25 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-
-    <IsPackable>false</IsPackable>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="nunit" Version="3.12.0" />
-    <PackageReference Include="NUnit3TestAdapter" Version="3.15.1" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.2.0" />
+    <PackageReference Include="Autofac" Version="5.1.2" />
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.1.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\ServiceMonitor.Worker\ServiceMonitor.Worker.csproj" />
-    <ProjectReference Include="..\ServiceMonitor.DataAccess\ServiceMonitor.DataAccess.csproj" />
     <ProjectReference Include="..\ServiceMonitor.Domain\ServiceMonitor.Domain.csproj" />
     <ProjectReference Include="..\ServiceMonitor.HttpBusinessServices\ServiceMonitor.HttpBusinessServices.csproj" />
-    <ProjectReference Include="..\ServiceMonitor.Web\ServiceMonitor.Web.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\css\" />
+  </ItemGroup>
+
 
 </Project>

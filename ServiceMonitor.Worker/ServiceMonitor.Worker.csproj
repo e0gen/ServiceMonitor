@@ -10,6 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ServiceMonitor.DataAccess\ServiceMonitor.DataAccess.csproj" />
     <ProjectReference Include="..\ServiceMonitor.Domain\ServiceMonitor.Domain.csproj" />
     <ProjectReference Include="..\ServiceMonitor.HttpBusinessServices\ServiceMonitor.HttpBusinessServices.csproj" />
   </ItemGroup>

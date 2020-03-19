@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- Basic Page Needs
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta charset="utf-8">
+    <title>@ViewData["Title"] - [ServiceMonitor]</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Mobile Specific Metas
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="refresh" content="5" />
+    <!-- FONT
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+
+    <!-- CSS
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="stylesheet" href="~/css/normalize.css">
+    <link rel="stylesheet" href="~/css/skeleton.css">
+    <link rel="stylesheet" href="~/css/style.css">
+
+    <!-- Scripts
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+</head>
+
+
+<body>
+<div class="container">
+    <div class="navbar-spacer"></div>
+    <nav class="navbar">
+        <div class="container">
+            <div class="one-third column top-10">SERVICE MONITOR</div>
+            <div class="one-third column">
+        </div>
+    </nav>
+</div>
+
+
+<div class="container">
+    @RenderBody()
+</div>
+
+@*@RenderSection("Scripts", required: false)*@
+</body>
+</html>
