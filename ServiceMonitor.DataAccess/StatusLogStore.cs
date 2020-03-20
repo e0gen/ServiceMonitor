@@ -36,9 +36,23 @@ namespace ServiceMonitor.DataAccess
                 .AsNoTracking().ToListAsync();
         }
 
-        public Task<IList<StatusStatistic>> GetStatusStatisticsAsync()
+        public async Task<IList<StatusStatistic>> GetStatusStatisticsAsync()
         {
-            throw new NotImplementedException();
+            var date1HourAgo= DateTimeOffset.Now.AddHours(-1);
+            var date1DayAgo = DateTimeOffset.Now.AddDays(-1);
+            var baseQuery = _context.StatusLogs.Where(x => x.Date >= date1DayAgo);
+
+            var resultQuery = from o in baseQuery
+                group o by o.ServiceName into g
+                select new StatusStatistic()
+                {
+                    ServiceName = g.Key,
+                    LastStatus = baseQuery.Where(x => x.ServiceName == g.Key).Select(x => x.Status).Last(),
+                    LastHourFails = g.Sum(d => d.Date >= date1HourAgo && !((int)d.Status >= 200 && (int)d.Status < 300) ? 1 : 0),
+                    LastDayFails = g.Sum(d => !((int)d.Status >= 200 && (int)d.Status < 300) ? 1 : 0)
+                };
+
+            return await resultQuery.AsNoTracking().ToListAsync();
         }
 
         public async Task SaveChangesAsync()
