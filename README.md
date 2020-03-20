@@ -6,6 +6,8 @@ Web service perform periodical check accessibility of all necessary http service
 
 The home page displays all the monitored services for the last 24 hours and provides error statistics for the last hour and day for each service, as well as the last status.
 
+![Home](https://user-images.githubusercontent.com/5530344/77160261-0d6d1200-6ab8-11ea-8766-2619ee77fcd5.png)
+
 # API
 
 Data on the availability of a certain service can be transferred to the service through API **POST** request
