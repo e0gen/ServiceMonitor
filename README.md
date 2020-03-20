@@ -1,6 +1,6 @@
 # ServiceMonitor
 
-Web service perform periodical check accessibility of all necessary http services and it collect and provide statistics about monitored services.
+Microservice perform periodical check accessibility of all necessary http services and it collect and provide statistics about monitored services.
 
 # Home page
 
@@ -10,11 +10,9 @@ The home page displays all the monitored services for the last 24 hours and prov
 
 # API
 
-Data on the availability of a certain service can be transferred to the service through API **POST** request
+Additionally data of the availability of a certain service can be send directly to the service through API
 
-```
-/api/status/send
-```
+**POST**   `/api/status/send`
 
 ```json
 {
@@ -24,7 +22,18 @@ Data on the availability of a certain service can be transferred to the service 
 }
 ```
 
+To check microservice is up without consuming any resources
+
+**GET**   `/api/status`
+
+Returns `OK(200)` if is service running
+
+## Features 
+
+- Service Checker worker can be deployed independently of web application.
+
 ## Built on
+
 * C# 7
 * .NET Core 3.1
 * ASP.NET Core
