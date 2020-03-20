@@ -92,5 +92,26 @@ namespace ServiceMonitor.Tests
                 Assert.AreEqual(6, result.Count);
             }
         }
+
+        [Test]
+        public async Task GetStatusStatisticsAsync_Work()
+        {
+            // Assert
+            using (var context = new ApplicationDbContext(options_global))
+            {
+                var sut = new StatusLogStore(context);
+                var result = await sut.GetStatusStatisticsAsync();
+                var service1Row = result.First();
+                var service2Row = result.Last();
+
+                Assert.AreEqual(2, result.Count);
+
+                Assert.AreEqual(0, service1Row.LastHourFails);
+                Assert.AreEqual(0, service1Row.LastDayFails);
+
+                Assert.AreEqual(1, service2Row.LastHourFails);
+                Assert.AreEqual(2, service2Row.LastDayFails);
+            }
+        }
     }
 }
