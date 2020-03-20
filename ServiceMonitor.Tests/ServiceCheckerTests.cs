@@ -3,7 +3,6 @@ using System.Net;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
-using Castle.Core.Logging;
 using Microsoft.Extensions.Logging;
 using Moq;
 using NUnit.Framework;

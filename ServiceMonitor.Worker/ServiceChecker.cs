@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
@@ -32,7 +33,8 @@ namespace ServiceMonitor.Worker
         {
             while (!stoppingToken.IsCancellationRequested)
             {
-                _logger.LogInformation("ServiceChecker running at: {time}", DateTimeOffset.Now);
+                _logger.LogInformation("ServiceChecker tracking {count} services at: {time}", 
+                    _businessServices.Count(), DateTimeOffset.Now);
 
                 var listOfTasks = new List<(Task<HttpResponseMessage> Task, string Name)>();
 
